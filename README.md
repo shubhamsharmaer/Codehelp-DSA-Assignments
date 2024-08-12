@@ -4,7 +4,7 @@
 
 ## 🚨 Navigation
 
-[`Repository Structure`](#-repository-structure) [`Assignment Folders`](#1-assignment-folders) [`README Files`](#2-readme-files) [`Time Complexity & Memory Used`](#3-time-complexity--memory-used) [`How to Use This Repository`](#-how-to-use-this-repository) [`Connect with Me`](#-connect-with-me)
+[Repository Structure](#-repository-structure) [Assignment Folders](#1-assignment-folders) [README Files](#2-readme-files) [Time Complexity & Memory Used](#3-time-complexity--memory-used) [How to Use This Repository](#-how-to-use-this-repository) [Connect with Me](#-connect-with-me)
 
 This repository is a collection of my Data Structures and Algorithms (DSA) assignments, which I regularly update as I work through various problems.
 
