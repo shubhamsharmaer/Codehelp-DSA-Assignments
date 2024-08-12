@@ -35,7 +35,7 @@ Each assignment is organized into its own folder for easy navigation and underst
 Feel free to reach out if you have any questions or just want to connect! You can find me on the following platforms:
 
    - 🌐 [LinkedIn](https://www.linkedin.com/in/shubhamsharmaer)
-   - 🐦 [Twitter](https://twitter.com/shubhamshrmaer)
+   - 🐦 [Twitter](https://twitter.com/shubhamsharmaer)
    - 💼 [GitHub](https://github.com/shubhamsharmaer)
 
 Thank you for visiting the repository! Your feedback and suggestions are always welcome. 😊
