@@ -1,12 +1,8 @@
 ![image](https://github.com/user-attachments/assets/eda381ff-91db-4083-a307-a8d229bf942d)
 
 # 🚀 Welcome to the **Codehelp DSA Assignments** Repository!
-
-## 🚨 Navigation
-
-[Repository Structure](#-repository-structure) [Assignment Folders](#1-assignment-folders) [README Files](#2-readme-files) [Time Complexity & Memory Used](#3-time-complexity--memory-used) [How to Use This Repository](#-how-to-use-this-repository) [Connect with Me](#-connect-with-me)
-
 This repository is a collection of my Data Structures and Algorithms (DSA) assignments, which I regularly update as I work through various problems.
+
 
 ## 🗂️ Repository Structure
 
@@ -18,14 +14,21 @@ Each assignment is organized into its own folder for easy navigation and underst
      - **💻 Code Files**: The implementation of the solution in the programming language used (typically `.cpp`).
      - **📄 README.md**: A markdown file providing a detailed explanation of the problem statement, the approach used, and any relevant notes.
 
-### 2. **📖 README Files**
-   - The `README.md` file in each folder serves as a guide to understanding the problem and the logic behind the solution.
+### 2. **🚨 Code Files**
+   - The `code.cpp` file in each folder is the main logic implementation of the problem.
    - **Contents**:
-     - **❓ Problem Statement**: A clear description of the problem.
+     - **✍🏻 Implementation**: The code implementation to solve the problem.
      - **🧠 Approach**: The thought process and strategy used to solve the problem.
      - **⚠️ Edge Cases**: Consideration of edge cases and how they are handled.
 
-### 3. **⏱️ Time Complexity & 📈 Memory Used**
+### 3. **📖 README Files**
+   - The `README.md` file in each folder serves as a guide to understanding the problem and the logic behind the solution.
+   - **Contents**:
+     - **❓ Problem Statement**: A clear description of the problem.
+     - **👀 Examples**: Some examples of Input and expected Output of the problem.
+     - **⭕ Constraints**: Constraints and limits ranges of integers, etc.
+
+### 4. **⏱️ Time Complexity & 📈 Memory Used**
    - See the `commit comment` of the main folder for this information.
 
 ## 🛠️ How to Use This Repository
