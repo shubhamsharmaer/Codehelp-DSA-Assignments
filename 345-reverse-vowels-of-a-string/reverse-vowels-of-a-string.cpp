@@ -2,11 +2,16 @@ class Solution {
 public:
 
     bool isVowel(char ch){
-        string str = "aeiouAEIOU";
-        if(str.find(ch) != string::npos){
-            return true;
-        }
-        return false;
+        // M2 with 50% Beats
+        ch = tolower(ch);
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+
+        // M1 with 5% Beats only
+        // string str = "aeiouAEIOU";
+        // if(str.find(ch) != string::npos){
+        //     return true;
+        // }
+        // return false;
     }
     string reverseVowels(string s) {
         int l = 0;
