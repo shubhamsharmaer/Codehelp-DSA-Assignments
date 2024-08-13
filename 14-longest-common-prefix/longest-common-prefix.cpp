@@ -1,7 +1,7 @@
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        // take a ans string
+        // take a ans string to store matched char
         string ans;
         // take a int
         int i = 0;
