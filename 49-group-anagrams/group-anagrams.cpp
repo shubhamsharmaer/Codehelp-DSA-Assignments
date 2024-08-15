@@ -1,17 +1,26 @@
 class Solution {
 public:
+    std::array<int, 256>hash(string s){
+        // make a hash
+        std::array<int,256>hash = {0};
+        for(int i = 0; i < s.size(); i++){
+            hash[s[i]]++;
+        }
+        return hash;
+    }
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
         // create map
-        map<string, vector<string>>mp;
+        // map<string, vector<string>>mp;
+        map<std::array<int,256>, vector<string>>mp;
         
         // loop on strs
         for(auto str:strs){
             // take a string say -> s
             string s = str;
             // sort s
-            sort(s.begin(), s.end());
+            // sort(s.begin(), s.end());
             // map[s].push_back(str);
-            mp[s].push_back(str);
+            mp[hash(s)].push_back(str);
         }
             
         // make a ans vector<vector<string>>
@@ -22,7 +31,7 @@ public:
             ans.push_back(it -> second);
         }
         return ans;
-
+        
         
     }
 };
