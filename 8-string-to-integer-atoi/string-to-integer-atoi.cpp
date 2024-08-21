@@ -1,8 +1,9 @@
 class Solution {
 public:
     int myAtoi(string s) {
-        int num = 0, i = 0, sign = 1;
-        
+        int num = 0, i = 0;
+        int sign = 1;
+
         while(s[i] == ' '){
             i++;
         }
@@ -13,12 +14,13 @@ public:
         }
 
         while(i < s.size() && isdigit(s[i])){
+
             if(num > INT_MAX / 10 || (s[i] > '7' && num == INT_MAX / 10)){
                 return sign == -1 ? INT_MIN : INT_MAX;
             }
             num = num * 10 + (s[i] - '0');
             i++;
         }
-        return num*sign;
+        return num * sign;
     }
 };
