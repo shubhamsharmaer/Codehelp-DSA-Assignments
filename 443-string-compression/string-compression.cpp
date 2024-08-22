@@ -23,28 +23,27 @@ public:
             else{
                 chars[index++] = prev;
                 if(count > 1){
-                    //-----------------------//
-                    int start = index; 
+                    // start
+                    int start = index;
                     while(count){
                         chars[index++] = (count % 10) + '0';
                         count /= 10;
                     }
                     reverse(chars.begin() + start, chars.begin() + index);
-                    //---------------------------------------------------//
                 }
                 prev = chars[i];
                 count = 1;
             }
         }
-        chars[index++] = prev;
-        if(count > 1){
-            int start = index;
-            while(count){
-                chars[index++] = (count % 10) + '0';
-                count /= 10;
-            }
-            reverse(chars.begin() + start, chars.begin() + index);
+    chars[index++] = prev;
+    if(count > 1){
+        int start = index;
+        while(count){
+            chars[index++] = (count % 10) + '0';
+            count /= 10;
         }
+        reverse(chars.begin() + start, chars.begin() + index);
+    }
         return index;
     }
 };
