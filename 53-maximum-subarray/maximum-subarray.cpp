@@ -17,7 +17,7 @@ public:
     int maxSubArrayHelper(vector<int>& v, int start, int end){
         // base case
         if(start == end) return v[start];
-        int mid = start + (end - start) / 2;
+        int mid = start + ((end - start) / 2);
         int maxLeftBordersum = INT_MIN, maxRightBordersum = INT_MIN;
 
         // recusive call
