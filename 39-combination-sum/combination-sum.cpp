@@ -9,7 +9,7 @@ public:
     //                              push [i] in v
     //                              recursive call with target-candidates[i], i
     //                              v.pop_back()
-    void combinationSumHelper(vector<int>& candidates, int target, vector<vector<int>>& ans, vector<int>& v, int index){
+    void combinationSumHelper(vector<int>& candidates, vector<vector<int>>& ans, vector<int>& v, int target, int index) {
         // base case
         if(target == 0){
             ans.push_back(v);
@@ -17,19 +17,20 @@ public:
         }
         if(target < 0){
             return;
-        };
+        }
 
+        // loop 
         for(int i = index; i < candidates.size(); i++){
             v.push_back(candidates[i]);
-            combinationSumHelper(candidates, target-candidates[i], ans, v, i);
+            combinationSumHelper(candidates, ans, v, target-candidates[i], i);
             v.pop_back();
         }
 
-    } 
+    }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<vector<int>> ans;
         vector<int> v;
-        combinationSumHelper(candidates, target, ans, v, 0);
+        combinationSumHelper(candidates, ans, v, target, 0);
         return ans;
     }
 };
