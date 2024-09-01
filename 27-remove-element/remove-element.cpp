@@ -6,7 +6,7 @@ public:
         // ? -> garbage value
         // to erase this garbage value from nums in place -> nums.erase(it, nums.end())
         // return size()
-        auto it = std::remove(nums.begin(), nums.end(), val);
+        auto it = std:: remove(nums.begin(), nums.end(), val);
         nums.erase(it, nums.end());
         return nums.size();
     }
