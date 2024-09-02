@@ -1,5 +1,14 @@
 class Solution {
 public:
+
+    // take an v vector for storing all arrangments
+    // inside helper fun -> base case
+    //                      -> if currNum == n + 1 then ans++; return;
+    //                   -> loop (1 -> <= n)
+    //                      check if (v[i] == 0 && (i % currNum == 0 || opposite))
+    //                          then v[i] = currNum
+    //                          recursive call with currNum + 1;
+    //                          then put 0 to v[i]; 
     void countArrangementHelper(int& ans, vector<int>&v, int& n, int currNum){
         // base case
         if(currNum == n + 1){
