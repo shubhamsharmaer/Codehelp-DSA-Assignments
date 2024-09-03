@@ -1,27 +1,28 @@
 class Solution {
 public:
+    // Create mapping
+    //         take int map = {0} for s[i] mapping
+    //         take bool map = {0} to prevent duplicate mapping of t[i]
+    //          loop for mapping
+    //                  check if hash[s[i]] == 0 then only map
+    // Check if mapping complete using same loop above 
+    //              if(char(hash[s[i]] != t[i])) then false;
     bool isIsomorphic(string s, string t) {
-        int hash[256] = {0}; // mapping for s string char -> t string char
-        bool isTmapped[256] = {0}; // check if char of t string  
+        int hash[256] = {0};
+        bool isTmapped[256] = {0};
 
-        // loop for itetrating s
         for(int i = 0; i < s.size(); i++){
-            // cond check for 
             if(hash[s[i]] == 0 && isTmapped[t[i]] == 0){
-                // mappe s[i] -> t[i]
                 hash[s[i]] = t[i];
-                // make isTmapped true for t[i] state
-                isTmapped[t[i]] = true; 
+                isTmapped[t[i]] = true;
             }
         }
 
-        // loop for checking if s[i] == t[i] in terms of chars
         for(int i = 0; i < s.size(); i++){
             if(char(hash[s[i]] != t[i])){
                 return false;
             }
         }
-
         return true;
     }
 };
