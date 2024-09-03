@@ -15,16 +15,17 @@ public:
     // take temp = head
     // while(currpos != middlepos) -> currpos++, temp = temp -> next
     // return temp
-    int getlen(ListNode* head){
-        int len = 0;
-        ListNode* temp = head;
-        while(temp != NULL){
-            temp = temp->next;
-            len++;
-        }
-        return len;
-    }
+    // int getlen(ListNode* head){
+    //     int len = 0;
+    //     ListNode* temp = head;
+    //     while(temp != NULL){
+    //         temp = temp->next;
+    //         len++;
+    //     }
+    //     return len;
+    // }
     // USED Slow & Fast Algorithm
+    //      take slow and fast node
     //      if fast can move 2 steps forward then move slow with one step
     //      when fast = NULL slow will be at middle
     ListNode* middleNode(ListNode* head) {
