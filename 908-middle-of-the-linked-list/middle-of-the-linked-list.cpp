@@ -24,15 +24,31 @@ public:
         }
         return len;
     }
+    // USED Slow & Fast Algorithm
+    //      if fast can move 2 steps forward then move slow with one step
+    //      when fast = NULL slow will be at middle
     ListNode* middleNode(ListNode* head) {
-        int n = getlen(head);   
-        int middlepos = (n/2) + 1;
-        int currpos = 1;
-        ListNode* temp = head;
-        while(currpos != middlepos){
-            temp = temp -> next;
-            currpos++;
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast != NULL){
+            fast = fast -> next;
+            if(fast != NULL){
+                fast = fast -> next;
+                slow = slow -> next;
+            }
         }
-        return temp;
+
+        return slow;
+
+        // int n = getlen(head);   
+        // int middlepos = (n/2) + 1;
+        // int currpos = 1;
+        // ListNode* temp = head;
+        // while(currpos != middlepos){
+        //     temp = temp -> next;
+        //     currpos++;
+        // }
+        // return temp;
     }
 };
