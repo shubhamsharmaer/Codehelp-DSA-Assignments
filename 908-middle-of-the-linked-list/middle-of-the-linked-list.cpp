@@ -10,6 +10,11 @@
  */
 class Solution {
 public:
+    // get length of linklist 
+    // take currpos = 1, middlepos = len / 2 + 1
+    // take temp = head
+    // while(currpos != middlepos) -> currpos++, temp = temp -> next
+    // return temp
     int getlen(ListNode* head){
         int len = 0;
         ListNode* temp = head;
