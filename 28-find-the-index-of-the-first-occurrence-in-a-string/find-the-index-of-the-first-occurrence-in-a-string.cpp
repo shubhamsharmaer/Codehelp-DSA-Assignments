@@ -11,7 +11,7 @@ public:
         //---------------------------------//
 
 
-        // Method 2 -> 2 Pointer
+        // M2 TWO POINTER
         int n = haystack.size();
         int m = needle.size();
 
