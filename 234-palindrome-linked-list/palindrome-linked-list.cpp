@@ -14,35 +14,36 @@ public:
     // break LL by taking head2 = mid -> next then mid -> next = NULL
     // reverse LL2 
     // compare LL1 & LL2
-    ListNode* reverseLL(ListNode* prev, ListNode* curr){
-        // base case
-        if(curr == NULL){
-            return prev;
-        }
-
-        // case sol
-        ListNode* nextNode = curr -> next;
-        curr -> next = prev;
-        prev = curr;
-        curr = nextNode;
-
-        // recursive call
-        return reverseLL(prev, curr);
-
-    }
     ListNode* findmid(ListNode* head){
         ListNode* slow = head;
         ListNode* fast = head;
 
-        while(fast->next != NULL){
+        while(fast-> next != NULL){
             fast = fast -> next;
-            if(fast->next != NULL){
+            if(fast -> next != NULL){
                 fast = fast -> next;
                 slow = slow -> next;
             }
         }
         return slow;
     }
+
+    ListNode* reverse(ListNode* prev, ListNode* curr){
+        // base case 
+        if(curr == NULL){
+            return prev;
+        }
+
+        // case one
+        ListNode * nextNode = curr -> next;
+        curr -> next = prev;
+        prev = curr;
+        curr = nextNode;
+
+        // recursive call
+        return reverse(prev, curr);
+    }
+
     bool compareLL(ListNode* head, ListNode* head2){
         ListNode* temp = head;
         ListNode* temp2 = head2;
@@ -50,25 +51,30 @@ public:
         while(temp != NULL && temp2 != NULL){
             if(temp -> val != temp2 -> val){
                 return false;
-            } 
+            }
             temp = temp -> next;
             temp2 = temp2 -> next;
         }
-
         return true;
+
     }
     bool isPalindrome(ListNode* head) {
         ListNode* mid = findmid(head);
         ListNode* head2 = mid -> next;
-        mid->next = NULL;
-
+        // break LL
+        mid -> next = NULL;
+        
+        ListNode* temp = head2; 
         ListNode* prev = NULL;
-        ListNode* curr = head2;
-        head2 = reverseLL(prev, curr);
+        ListNode* curr = temp;
+        
+        head2 = reverse(prev, curr);
 
-        bool ans = compareLL(head, head2);
-        return ans;
+        if(compareLL(head, head2)){
+            return true;
+        }
 
+        return false;
 
     }
 };
