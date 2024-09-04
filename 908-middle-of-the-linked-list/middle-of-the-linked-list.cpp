@@ -10,46 +10,22 @@
  */
 class Solution {
 public:
-    // get length of linklist 
-    // take currpos = 1, middlepos = len / 2 + 1
-    // take temp = head
-    // while(currpos != middlepos) -> currpos++, temp = temp -> next
-    // return temp
-    // int getlen(ListNode* head){
-    //     int len = 0;
-    //     ListNode* temp = head;
-    //     while(temp != NULL){
-    //         temp = temp->next;
-    //         len++;
-    //     }
-    //     return len;
-    // }
     // USED Slow & Fast Algorithm
     //      take slow and fast node
     //      if fast can move 2 steps forward then move slow with one step
     //      when fast = NULL slow will be at middle
     ListNode* middleNode(ListNode* head) {
+
         ListNode* slow = head;
         ListNode* fast = head;
-
+        
         while(fast != NULL){
-            fast = fast -> next;
+            fast = fast->next;
             if(fast != NULL){
-                fast = fast -> next;
-                slow = slow -> next;
+                fast = fast->next;
+                slow = slow->next;
             }
         }
-
         return slow;
-
-        // int n = getlen(head);   
-        // int middlepos = (n/2) + 1;
-        // int currpos = 1;
-        // ListNode* temp = head;
-        // while(currpos != middlepos){
-        //     temp = temp -> next;
-        //     currpos++;
-        // }
-        // return temp;
     }
 };
