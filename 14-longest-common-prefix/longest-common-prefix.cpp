@@ -1,42 +1,35 @@
 class Solution {
 public:
-    string longestCommonPrefix(vector<string>& strs) {
-        // take a ans string to store matched char
-        string ans;
+    // take a ans string to store matched char
         // take a int
+            // taking a char for comparing the chars of str
+            // loop for iterating strs (auto str: strs)
+                // check for out of bound if(i >= str.size()) -> reset curr_ch = 0, break;
+                // eg 6 chars -> 'flower' 4 chars -> 'flow'
+            // cond for exit while loop
+    string longestCommonPrefix(vector<string>& strs) {
+        string ans = "";
         int i = 0;
 
         while(true){
-            // taking a char for comparing the chars of str
-            char cur_ch = 0;
-
-            // loop for iterating strs
-            for(auto str:strs){
-
-                // check for out of bound
-                // eg 6 chars -> 'flower' 4 chars -> 'flow'
+            char curr_ch = 0;
+            for(auto str : strs){
                 if(i >= str.size()){
-                    cur_ch = 0;
+                    curr_ch = 0;
                     break;
                 }
-                if(cur_ch == 0){
-                    cur_ch = str[i];
+                else if(curr_ch == 0){
+                    curr_ch = str[i];
                 }
-                else if(str[i] != cur_ch){
-                    cur_ch = 0;
+                else if(curr_ch != str[i]){
+                    curr_ch = 0;
                     break;
                 }
             }
-
-            // cond for exit while loop
-            if(cur_ch == 0){
-                break;
-            }
-            ans.push_back(cur_ch);
+            if(curr_ch == 0) break;
+            ans.push_back(curr_ch);
             i++;
         }
-
-        return ans;
-        
+            return ans;
     }
 };
