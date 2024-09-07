@@ -21,13 +21,11 @@ public:
             else if(mid - 1 >= 0 && nums[mid] < nums[mid - 1]){
                 return mid - 1;
             }
-            else if(nums[s] > nums[mid]){
-                // go to left
-                e = mid;
+            else if(nums[mid] >= nums[s]){
+                s = mid + 1;  // search on the right side
             }
             else{
-                // go to right
-                s = mid + 1;
+                e = mid - 1;  // search on the left side
             }
         }
         return -1;
