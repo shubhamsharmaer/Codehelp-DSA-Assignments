@@ -32,7 +32,8 @@ public:
             if(temp -> next != NULL && temp -> val == temp -> next -> val){
                 ListNode* nextNode = temp -> next;
                 temp -> next = nextNode -> next;
-                nextNode -> next = NULL;                
+                nextNode -> next = NULL;
+                delete nextNode;                
             }
             else temp = temp -> next;
         }
