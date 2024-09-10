@@ -19,7 +19,7 @@ public:
     //              nextNode -> next = null
     // return head;
     ListNode* deleteDuplicates(ListNode* head) {
-        // base  case
+        // base case
         if(head == NULL){
             return head;
         }
@@ -28,14 +28,17 @@ public:
         }
 
         ListNode* temp = head;
-        while(temp != NULL){
-            if(temp -> next != NULL && temp -> val == temp -> next -> val){
-                ListNode* nextNode = temp -> next;
+        ListNode* nextNode;
+        while(temp != NULL  && temp -> next != NULL){
+            if(temp -> val == temp -> next -> val){
+                nextNode = temp -> next;
                 temp -> next = nextNode -> next;
                 nextNode -> next = NULL;
-                delete nextNode;                
+                delete nextNode;
             }
-            else temp = temp -> next;
+            else{
+                temp = temp -> next;
+            }
         }
         return head;
     }
