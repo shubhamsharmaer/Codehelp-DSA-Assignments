@@ -19,12 +19,13 @@ public:
     // add left node if any (left) mptr -> next = left
     // add right node if any (left) mptr -> next = right
     ListNode* mergeTwoLists(ListNode* left, ListNode* right) {
-        // base condn
+        // base case
         if(left == 0) return right;
         if(right == 0) return left;
         
         ListNode* ansNode = new ListNode(-1);
         ListNode* mptr = ansNode;
+
         while(left && right){
             if(left -> val <= right -> val){
                 mptr -> next = left;
@@ -40,14 +41,11 @@ public:
 
         if(left){
             mptr -> next = left;
-            // mptr = left;
-            // left = left -> next;
         }
         if(right){
             mptr -> next = right;
-            // mptr = right;
-            // right = right -> next;
         }
+
         return ansNode -> next;
     }
 };
