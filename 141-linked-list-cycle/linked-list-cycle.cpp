@@ -9,6 +9,7 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
+        // Slow & Fast Method
         ListNode* slow = head;
         ListNode* fast = head;
 
@@ -18,34 +19,11 @@ public:
                 fast = fast -> next;
                 slow = slow -> next;
             }
-            if(slow == fast){
-            return true;
-        }
-        }
-        
+
+            if(fast == slow) return true;
+        } 
+
         return false;
-
-
-
-
-
-
-
-        // Slow & Fast Method
-        // ListNode* slow = head;
-        // ListNode* fast = head;
-
-        // while(fast != NULL){
-        //     fast = fast -> next;
-        //     if(fast != NULL){
-        //         fast = fast -> next;
-        //         slow = slow -> next;
-        //     }
-
-        //     if(fast == slow) return true;
-        // } 
-
-        // return false;
 
 
         // MAP Method
