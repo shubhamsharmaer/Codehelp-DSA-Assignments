@@ -8,7 +8,16 @@
  */
 class Solution {
 public:
-
+    // take ptr at both head;
+    // loop while(next != null (both)) -> if(A == B) return A;
+    //  if(A -> next == null) then
+    //                  take int blen 
+    //                  then loop(blen--) -> B = B -> next;
+    //                  else case (opp the node) 
+    // loop (headA != headB) 
+    //                  headA next
+    //                  headB next
+    // return headA;
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         ListNode* A = headA;
         ListNode* B = headB;
