@@ -16,6 +16,13 @@ public:
 
 class Solution {
 public:
+    // make a map <node, node> mp
+    // call helper(head, mp)
+    // base case (head == null)
+    // make newNode = new Node(head -> val)
+    // mp[head] = newHead; --> map the old ptr to new ptr
+    // if head -> random then newHead -> random = mp[head -> random]
+    // return newHead;
     Node* helper(Node* head, unordered_map<Node*, Node*>& mp){
         // base case
         if(head == 0) return head;
