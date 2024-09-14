@@ -10,16 +10,16 @@ public:
         // return s == t;
 
         // M2 -> Freqtable or Hash
-        int freq[256] = {0};
-
         // loop for freq counting
-        for(int i = 0; i< s.size(); i++){
+        // loop for decrementing the counting
+        // return true
+        int freq[256] = {0};
+        for(int i = 0; i < s.length(); i++){
             freq[s[i]]++;
         }
 
-        // loop for decrementing the counting
-        for(int i = 0; i<t.size(); i++){
-            freq[t[i]]--;
+        for(int i = 0; i < t.length(); i++){
+                freq[t[i]]--;
         }
 
         for(int i = 0; i < 256; i++){
