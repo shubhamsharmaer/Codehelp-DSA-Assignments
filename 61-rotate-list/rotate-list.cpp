@@ -13,7 +13,8 @@ public:
     // get len of node
     // cal actualrotate = len % k
     // if  actualrotate == 0 return head;
-    // take nodes -> newlastNode , newHead , it
+    // take nodes -> newlastNode = head, newHead = newlastNode -> next, it = newlastNode
+    // for(i < actualrotate) newlastNode = newlastNode -> next
     int getlen(ListNode* head){
         int len = 0;
         ListNode* temp = head;
