@@ -8,13 +8,15 @@ public:
     // nums = ans
     
     void rotate(vector<int>& nums, int k) {
+
         int n = nums.size();
         vector<int> ans(n);
-        // loop 
+
         for(int i = 0; i < n; i++){
-            int newindex = (i+k) % n;
-            ans[newindex] = nums[i];
+            int newIdx = (i + k) % n;
+            ans[newIdx] = nums[i]; 
         }
+
         nums = ans;
     }
 };
