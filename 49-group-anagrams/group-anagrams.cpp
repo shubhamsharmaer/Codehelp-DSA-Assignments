@@ -1,39 +1,38 @@
 class Solution {
 public:
-    std::array<int, 256>hash(string s){
-        // make a hash
-        std::array<int,256>hash = {0};
+    // make a map <std::array<int, 256>, vector<string>>mp;
+    // loop for str : strs
+    //          mp[hash[str]].push_back(str)
+    // take ans vector<vector>
+    // loop for mp
+    // hash() --> create mapping 
+    //          take std::array<int, 256> hash = {0};
+    // loop for auto it = mp.begin(); it != mp.end(); it++
+    //          ans.push_back(it -> second)
+    // return ans;
+    // loop for string argr s
+    //          hash[s[i]]++;
+    // return hash;
+    std::array<int, 256> hash(string s){
+        std::array<int, 256> hash = {0};
         for(int i = 0; i < s.size(); i++){
             hash[s[i]]++;
         }
         return hash;
     }
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        // create map
-        // map<string, vector<string>>mp;
-        // M2  
-        map<std::array<int,256>, vector<string>>mp;
-        
-        // loop on strs
-        for(auto str:strs){
-            // take a string say -> s
-            // string s = str;
-            // sort s
-            // sort(s.begin(), s.end());
-            // mp[s].push_back(str);
-            // M2  
+        // take a map
+        map<std::array<int, 256>, vector<string>>mp;
+        for(auto str : strs){
             mp[hash(str)].push_back(str);
         }
-            
-        // make a ans vector<vector<string>>
+
         vector<vector<string>>ans;
-        // loop on map
+
         for(auto it = mp.begin(); it != mp.end(); it++){
-            //  push second on ans
+            // push second elem
             ans.push_back(it -> second);
         }
         return ans;
-        
-        
     }
 };
