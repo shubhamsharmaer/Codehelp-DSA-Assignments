@@ -45,12 +45,12 @@ public:
         ListNode* temp = lastNode -> next;
         lastNode -> next = NULL;
         
-        // delete old list
-        while(temp){
-            ListNode* nxt = temp -> next;
-            delete temp;
-            temp = nxt;
-        }
+        // delete old list NOT DELETING NODES TO IMPROVE TIME COMPLEXITY
+        // while(temp){
+        //     ListNode* nxt = temp -> next;
+        //     delete temp;
+        //     temp = nxt;
+        // }
         
         return head;
     }
