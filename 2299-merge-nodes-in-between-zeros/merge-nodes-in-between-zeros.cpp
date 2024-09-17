@@ -10,6 +10,18 @@
  */
 class Solution {
 public:
+    // take slow, fast (head -> next), lastNode = 0
+    // while(fast) jb tk fast ha
+    //          if fast -> val != 0 hai to sum += fast -> val
+    //          else --> slow -> val = sum
+    //               --> lastNode = slow
+    //               --> slow = slow -> next
+    //               --> sum = 0
+    //          fast = fast -> next
+    // take temp = lastNode -> next
+    // while(temp) --> *nxt = temp -> next
+    //             --> delete temp then temp = next
+    // return head;
     ListNode* mergeNodes(ListNode* head) {
         if(!head) return head;
 
