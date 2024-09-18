@@ -10,6 +10,10 @@
  */
 class Solution {
 public:
+    // h1 h2, temp = h2 
+    // while(h2 && h2 -> next) --> h1 -> next = h2 -> next; h2 -> next = h2 -> next -> next;
+    //                         --> h1 = h1 -> next; h2 = h2 -> next;
+    // h1 -> next = temp
     ListNode* oddEvenList(ListNode* head) {
         if(!head || head -> next == NULL) return head;
         
