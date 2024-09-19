@@ -1,8 +1,13 @@
 class Solution {
 public:
+    // loop on s
+    // take the characters out from string char ch = s[i]
+    // check if ch == 'any parenthese' then st.push(cha)
+            //  if ch == 'paranthese' && st.top() == 'same opp parenthese'
+            // then st.pop()
+    // else return false;
     bool isValid(string s) {
         stack<char> st;
-        // take the characters out from string using loop
         for(int i = 0; i < s.size(); i++){
             char ch = s[i];
             if(ch == '(' || ch == '{' || ch == '['){
