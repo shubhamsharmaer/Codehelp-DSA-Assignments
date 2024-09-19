@@ -5,6 +5,7 @@ public:
     // check if ch == 'any parenthese' then st.push(cha)
             //  if ch == 'paranthese' && st.top() == 'same opp parenthese'
             // then st.pop()
+            // else return false
     // else return false;
     bool isValid(string s) {
         stack<char> st;
