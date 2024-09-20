@@ -1,5 +1,12 @@
 class Solution {
 public:
+        // take ans vec
+        // loop on str
+        // check for oprts
+                // make two ans1 and ans2 with RE Call
+                // nested loops
+                        // check for optrs individauly --> if(exp[i] == '+') then ans.push_back(1[] + 2[])
+        // base case --> if ans.size() == 0 push stoi(exp) in ans
     
     vector<int> helper(string exp){
         // take ans vec
