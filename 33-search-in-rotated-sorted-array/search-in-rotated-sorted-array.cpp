@@ -5,27 +5,26 @@ public:
     // apply bs on left side bs()
     // apply bs on right side
     int findpivot(vector<int>& nums){
-        int n = nums.size();
         int s = 0, e = nums.size()-1;
-
         while(s <= e){
-            int mid = s + (e - s) / 2;
+            int mid = s + (e-s) / 2;
 
-            // corner case -> one element
-            if(s == e) return s;
-
-            // condn's
-            if(mid + 1 < n && nums[mid] > nums[mid + 1]){
+            // edge cases
+            if(s == e){
+                return s;
+            }
+            // cond 3 check
+            if(mid+1 < nums.size() && nums[mid] > nums[mid+1]){
                 return mid;
             }
-            else if(mid - 1 >= 0 && nums[mid] < nums[mid - 1]){
-                return mid - 1;
+            else if(mid-1 >= 0 && nums[mid] < nums[mid-1]){
+                return mid-1;
             }
-            else if(nums[mid] >= nums[s]){
-                s = mid + 1;  // search on the right side
+            else if(nums[s] <= nums[mid]){
+                s = mid+1;
             }
             else{
-                e = mid - 1;  // search on the left side
+                e = mid-1;
             }
         }
         return -1;
@@ -33,16 +32,16 @@ public:
     int bs(vector<int>& nums, int s, int e, int target){
         while(s <= e){
             int mid = s + (e-s) / 2;
-
+           
             if(nums[mid] == target){
                 return mid;
             }
-            else if(nums[mid] > target){
-                // go to left
-                e = mid - 1;
+            else if(target > nums[mid]){
+                // go to right
+                s = mid+1;
             }
-            else{
-                s = mid + 1;
+            else {
+                e = mid-1;
             }
         }
         return -1;
@@ -51,12 +50,13 @@ public:
         int n = nums.size();
         int pivot = findpivot(nums);
         int ans = -1;
-        // apply bs
+
         if(target >= nums[0] && target <= nums[pivot]){
+            // at left
             ans = bs(nums, 0, pivot, target);
         }
         else{
-            ans = bs(nums, pivot + 1, n - 1, target);
+            ans = bs(nums, pivot+1, n-1, target);
         }
         return ans;
     }
