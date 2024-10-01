@@ -1,6 +1,6 @@
 class Solution {
 public:
-    // countnum function ma no of elements find kr rhe ha jo agr k se chote ha 
+        // countnum function ma no of elements find kr rhe ha jo agr k se chote ha 
     // to hum unhe skip kar skte ha
     // LOGIC to countnum(cur, next, n)
     //      take a var countnums = 0
@@ -17,21 +17,24 @@ public:
     //          if(count <= k) cur++, k -= count // skipp
     //          else cur *= 10, k -= 1
     // return cur
-    int countnum(long cur, long next, int& n){
-        int countnums = 0;
+    int countnums(long cur, long next, int& n){
+        // base cond
+        int countnum = 0;
         while(cur <= n){
-            countnums += next-cur;
+            countnum += next - cur;
             cur *= 10;
             next *= 10;
             next = min(next, long(n+1));
         }
-        return countnums;
+        return countnum;
     }
     int findKthNumber(int n, int k) {
         int cur = 1;
-        k -= 1; // make 0 based index
+        k -= 1; // make it 0 based indexed
+
         while(k > 0){
-            int count = countnum(cur, cur+1, n);
+            // take int count
+            int count = countnums(cur, cur+1, n);
             if(k >= count){
                 cur++;
                 k -= count;
