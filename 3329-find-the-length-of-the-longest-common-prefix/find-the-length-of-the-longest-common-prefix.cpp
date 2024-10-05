@@ -1,7 +1,7 @@
 class Solution {
 public:
     // make an unordered set ---> insert all val of arr1 then num /= 10
-    //                            with for loop and while(num > 0 && !st.count(num)) loop under for 
+                            //    with for loop and while(num > 0 && !st.count(num)) loop under for 
     // take a for loop for arr2 and check while(num2 > 0 && !st.count(num2)) then num2 /= 10
     //                            if(num2 > 0) then result = max(result, static_cast<int>(log10(num2) + 1))
     int longestCommonPrefix(vector<int>& arr1, vector<int>& arr2) {
