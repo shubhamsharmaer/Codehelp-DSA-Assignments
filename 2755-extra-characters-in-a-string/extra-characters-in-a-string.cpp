@@ -10,31 +10,28 @@ public:
     //                      ---> take a curr string = s.substr(i, j-i+1)
     //                      ---> check if st.count(curr) then ans = min(ans, solve(j+1, same))
     //          --> return mp[i] = ans;
-    int solve(int i, string s, unordered_set<string>& st, int& n, unordered_map<int, int>& mp){
-        // base 
+    int solve(int i, string& s, unordered_set<string>& st, unordered_map<int, int>& map, int n){
+        // base cond
         if(i >= n) return 0;
-
-        // check for string exists in set or not
-        if(mp.count(i)){
-            return mp[i];
+        
+        int ans = 1 + solve(i+1, s, st, map, n);
+        if(map.count(i)){
+            return map[i];
         }
 
-        int ans = 1 + solve(i+1, s, st, n, mp);
         for(int j = i; j < n; j++){
-            string curr = s.substr(i, j-i+1);
-            // check if st has i
-            if(st.count(curr)){
-                ans = min(ans, solve(j+1, s, st, n, mp));
-            } 
-
+            string cur = s.substr(i, j-i+1);
+            if(st.count(cur)){
+                ans = min(ans, solve(j+1, s, st, map, n));
+            }
         }
-        return mp[i] = ans;
+        return map[i] = ans;
     }
     int minExtraChar(string s, vector<string>& dic) {
         int n = s.size();
-        unordered_map<int, int> mp;
         unordered_set<string> st(begin(dic), end(dic));
-        int ans = solve(0, s, st, n, mp);
+        unordered_map<int, int> map;
+        int ans = solve(0, s, st, map, n);
         return ans;
     }
 };
