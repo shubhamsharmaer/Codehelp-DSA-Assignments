@@ -1,7 +1,7 @@
 class MyQueue {
 public:
     // Using 2 Stacks -- Only implement pop() and peak() here
-    stack<int> s1, s2;
+    stack<int> s1,s2;
     MyQueue() {
         
     }
@@ -11,13 +11,11 @@ public:
     }
     
     int pop() {
-        // take a int
         int pop = -1;
         if(!s2.empty()){
             pop = s2.top();
         }
         else{
-            // loop for copying all elems from S1 --> S2
             while(!s1.empty()){
                 s2.push(s1.top());
                 s1.pop();
@@ -29,18 +27,18 @@ public:
     }
     
     int peek() {
-        int front = -1;
+        int peak = -1;
         if(!s2.empty()){
-            front = s2.top();
+            peak = s2.top();
         }
         else{
             while(!s1.empty()){
                 s2.push(s1.top());
                 s1.pop();
             }
-            front = s2.top();
+            peak = s2.top();
         }
-        return front;
+        return peak;
     }
     
     bool empty() {
