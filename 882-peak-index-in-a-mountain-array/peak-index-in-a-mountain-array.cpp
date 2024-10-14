@@ -8,10 +8,7 @@ public:
             int mid = start + (end-start) / 2;
 
             // cond to check
-            if(arr[mid] > arr[mid+1] && arr[mid] > arr[mid-1]){
-                return mid;
-            }
-            else if(arr[mid] < arr[mid+1]){
+            if(arr[mid] < arr[mid+1]){
                 // at left go to right
                 start = mid+1;
             }
@@ -19,6 +16,6 @@ public:
                 end = mid;
             }
         }
-        return -1;
+        return start;
     }
 };
