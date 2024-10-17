@@ -8,7 +8,7 @@ public:
     //                if(sum == -nums[i]) then 
     //                  push in ans({[i], [left], [right]})
     //                    skip duplicates and move further check below
-    //                else if sum < -nums[i] then left++; else right--;
+                //    else if sum < -nums[i] then left++; else right--;
     vector<vector<int>> threeSum(vector<int>& nums) {
         // sort the vec
         sort(nums.begin(), nums.end());
