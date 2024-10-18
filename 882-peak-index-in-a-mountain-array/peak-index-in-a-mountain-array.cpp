@@ -5,7 +5,7 @@ public:
         int start = 0, end = n-1;
 
         while(start < end){
-            int mid = start + (end-start) / 2;
+            int mid = start + (end-start) / 4;
 
             // cond to check
             if(arr[mid] < arr[mid+1]){
