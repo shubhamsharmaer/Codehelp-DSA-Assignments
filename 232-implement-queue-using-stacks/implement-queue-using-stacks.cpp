@@ -27,7 +27,7 @@ public:
     }
     
     int peek() {
-        int peak = 0;
+        int peak = -10;
         if(!s2.empty()){
             peak = s2.top();
         }
