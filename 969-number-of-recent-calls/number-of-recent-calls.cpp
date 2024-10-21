@@ -1,19 +1,20 @@
 class RecentCounter {
 public:
-    // implement a Queue
     queue<int> qu;
     RecentCounter() {
+        
     }
     
     int ping(int t) {
-        // push in queue
+        // push in stack
         qu.push(t);
-        // pop the [t-3000] element 
+        int count = 0;
+        // count the ping
         while(!qu.empty() && qu.front() < t - 3000){
+            // qu.top();
             qu.pop();
         }
         return qu.size();
-
     }
 };
 
