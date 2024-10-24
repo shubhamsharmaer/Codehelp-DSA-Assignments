@@ -21,8 +21,8 @@ public:
                 // 2. back to bottom
                     if(!q.empty()){
                         auto next = q.front();
-                        q.push(next);
                         q.pop();
+                        q.push(next);
                     }
             // }
         }   
