@@ -1,6 +1,6 @@
 class Solution {
 public:
-    // take 3 var -> i, minProfit, maxProfit
+     // take 3 var -> i, minProfit, maxProfit
     // call func()
         // base case -> i == prices.size return;
         // soln for case -> if [i] < minProfit then minProfit = [i]
@@ -8,24 +8,27 @@ public:
                     //   -> if todayprofit < maxProfit then maxProfit = todayprofit
         // recusive call -> funt(prices, i+1, minProfit, maxProfit) 
     //return maxProfit
-    
-    void findProfit(vector<int>& prices, int i, int& minProfit, int& maxProfit){
+    void maxProfitHelper(vector<int>& prices, int i, int& minProfit, int& maxProfit){
         // base case
         if(i == prices.size()) return;
-        // soln for 1 case
-            if(prices[i] < minProfit) minProfit = prices[i];
-            int todayprofit = prices[i] - minProfit;
-            if(todayprofit > maxProfit){
-                maxProfit = todayprofit;
-            }
-        // recusive call
-        findProfit(prices, i+1, minProfit, maxProfit);
+
+        // cal part
+        // checking if minProfit is < or >= [i]
+        if(minProfit > prices[i]) minProfit = prices[i];
+        int todayProfit = prices[i] - minProfit;
+        if(todayProfit > maxProfit){
+            maxProfit = todayProfit;
+        }
+
+        // recursive call
+         maxProfitHelper(prices, i+1, minProfit, maxProfit);
+        
     }
     int maxProfit(vector<int>& prices) {
+        int i = 0;
         int minProfit = INT_MAX;
         int maxProfit = INT_MIN;
-        int i = 0;
-        findProfit(prices, i, minProfit, maxProfit);
+        maxProfitHelper(prices, i, minProfit, maxProfit);
         return maxProfit;
     }
 };
