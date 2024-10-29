@@ -14,12 +14,13 @@ public:
         // loop for decrementing the counting
         // return true
         int freq[256] = {0};
+
         for(int i = 0; i < s.length(); i++){
             freq[s[i]]++;
         }
 
-        for(int i = 0; i < t.length(); i++){
-                freq[t[i]]--;
+        for(int j = 0; j < t.length(); j++){
+            freq[t[j]]--;
         }
 
         for(int i = 0; i < 256; i++){
