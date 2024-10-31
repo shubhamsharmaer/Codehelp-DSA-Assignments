@@ -4,7 +4,7 @@ public:
         // M1 Sorting
         // Sort both strings
         // sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
+        // sort(t.begin(), t.end());
 
         // Compare the sorted strings
         // return s == t;
