@@ -1,16 +1,17 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
+        // take a map
         unordered_map<int, int> map;
-        for(auto it : nums){
-            map[it]++;
-        }
+        // do mapping
+        for(auto item : nums){
+            map[item]++;
+        } 
 
-        // check for freq
-        for(const auto& pair : map){
-            if(pair.second > 1) return true;
+        // check for duplicate
+        for(const auto& item : map){
+            if(item.second > 1) return true;
         }
         return false;
-
     }
 };
