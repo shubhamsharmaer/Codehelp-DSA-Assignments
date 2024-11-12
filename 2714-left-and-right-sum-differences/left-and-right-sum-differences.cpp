@@ -22,15 +22,22 @@ public:
         vector<int> rightsum;        
         int n = nums.size();
         
-        leftsum = findprefix(nums);
-        rightsum = findsuffix(nums);
+        // leftsum = findprefix(nums);
+        // rightsum = findsuffix(nums);
+        
+        int total_sum = 0;
+        for(auto num : nums){
+            total_sum += num;
+        }
+        
         vector<int> ans;
-
+        int prefix_sum = 0;
         for(int i = 0; i < n; i++){
-            // cout<<leftsum[i]<<" ";
-            // cout<<rightsum[i]<<" ";
-            int diff = abs(leftsum[i] - rightsum[i]);
+            int suffix_sum = total_sum - prefix_sum - nums[i];
+            int diff = abs(prefix_sum - suffix_sum); 
+            // int diff = abs(leftsum[i] - rightsum[i]);
             ans.push_back(diff);
+            prefix_sum += nums[i];
         }
         return ans;
     }
