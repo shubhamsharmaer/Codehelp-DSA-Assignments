@@ -7,7 +7,6 @@ public:
         prefix[0] = 0;
         vector<int>suffix(n, 0);
         suffix[n-1] = 0;
-        // if (time == 0) ;
 
         // finding the increasing arr
         for(int i = 1; i < n; i++){
