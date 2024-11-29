@@ -5,7 +5,7 @@ public:
 
         // take two sums vec
         vector<int> prefixSum(n, 0);
-        // prefixSum[0] = 0;
+        prefixSum[0] = 0;
         vector<int> suffixSum(n, 0);
         suffixSum[n-1] = 0;
 
