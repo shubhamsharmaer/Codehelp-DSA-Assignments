@@ -6,11 +6,12 @@ public:
         if (m*n != original.size()) return vector<vector<int>>();
         int index = 0;
         // no. of rows ---> ans sub vectors
-        for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++){
-                vec[i][j] = original[index];
-                index++;
-            }
+        for(int i = 0; i < original.size(); i++){
+            // for(int j = 0; j < n; j++){
+            //     vec[i][j] = original[index];
+            //     index++;
+            // }
+            vec[i/n][i%n] = original[i];
         }
         return vec;
     }
