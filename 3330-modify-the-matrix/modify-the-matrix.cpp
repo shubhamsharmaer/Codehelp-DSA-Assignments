@@ -1,10 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> modifiedMatrix(vector<vector<int>>& matrix) {
-        int max_term = INT_MIN;
         int m = matrix.size();  // rows
         int n = matrix[0].size(); // colums
-        vector<vector<int>> ans;
 
         // unordered map
         vector<int> maxNumber(n, 0);
@@ -26,6 +24,5 @@ public:
             }
         }
         return matrix;
-        // }
     }
 };
