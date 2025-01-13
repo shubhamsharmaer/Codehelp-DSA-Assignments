@@ -11,27 +11,35 @@
  */
 class Solution {
 public:
+    // optimized approch
+    int Dia = 0;
     int maxHeight(TreeNode* root) {
         // base case
         if(root == NULL) {
             return 0;
         }
+        int lh = maxHeight(root->left);
+        int rh = maxHeight(root->right);
 
-        int leftH = maxHeight(root->left);
-        int rightH = maxHeight(root->right);
-        int ans = max(leftH, rightH) + 1;
-        return ans; 
+        // use currNode
+        int currD = lh + rh;
+        Dia = max(Dia, currD); 
+        return max(lh, rh) + 1;
     }
     int diameterOfBinaryTree(TreeNode* root) {
         // check for root null
         if(root == NULL) {
             return 0;
         }
-        int leftH = diameterOfBinaryTree(root->left);
-        int rightH = diameterOfBinaryTree(root->right);
-        int bothH = maxHeight(root->left) + maxHeight(root->right);
-        int ans = max(bothH, max(leftH, rightH));
-        return ans;
+
+        maxHeight(root);
+        return Dia;
+
+        // int leftH = diameterOfBinaryTree(root->left);
+        // int rightH = diameterOfBinaryTree(root->right);
+        // int bothH = maxHeight(root->left) + maxHeight(root->right);
+        // int ans = max(bothH, max(leftH, rightH));
+        // return ans;
         
     }
 };
