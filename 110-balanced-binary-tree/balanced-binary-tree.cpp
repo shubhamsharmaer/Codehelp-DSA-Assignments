@@ -11,40 +11,36 @@
  */
 class Solution {
 public:
-    int height(TreeNode* root){
-        // check null
-        if(root == NULL){
-            return 0;
-        }
+    int height(TreeNode* root) {
+        // base case
+        if(!root) return 0;
 
-        int leftH = height(root->left);
-        int rightH = height(root->right);
-
-        return max(leftH, rightH) + 1;
+        int lh = height(root->left);
+        int rh = height(root->right);
+        int ans = max(lh, rh) + 1;
+        return ans;
     }
     bool isBalanced(TreeNode* root) {
-        // check null
-        if(root == NULL){
-            return true;
-        }
-        // find the hegiht
-        int LH = height(root->left);
-        int RH = height(root->right);
+        // take base case
+        if(!root) return true;
+        
+        // for one case
+        int lh = height(root->left);
+        int rh = height(root->right);
+        // if(abs(lh - rh) <= 1) return true;
+        int diff = abs(lh - rh);
+        bool currNode = diff <= 1;
 
-        // if(abs(LH - RH) <= 1) return true;
-        int diff = abs(LH - RH);
-        bool currNode = (diff <= 1);
-
-        // recursive call for left ans right
-        bool LeftSubTree = isBalanced(root -> left);
-        bool RightSubTree = isBalanced(root -> right);
-
-        if((LeftSubTree && RightSubTree) && currNode) {
-            return true;
-        } 
-
-
-        return false;
+        // baki recurssion sambhalega
+        bool leftH = isBalanced(root->left);
+        bool rightH = isBalanced(root->right);
+        
+        // we have 3 things --> currNode res, leftH, rightH
+        // if anyone got true then final ans --> true
+        // use OR gate
+        if(currNode && (leftH && rightH)) return true;
+        else return false;
+        
 
     }
 };
