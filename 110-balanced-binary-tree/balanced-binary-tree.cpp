@@ -15,18 +15,13 @@ public:
     bool isbal = true; // assuming every tree is balanced
     int height(TreeNode* root) {
         // base case
-        if(!root) return 0;
+        if(!root) return false;
 
         int lh = height(root->left);
         int rh = height(root->right);
 
-        // check for false cond
-        if(isbal && abs(lh - rh) > 1) {
-            isbal = false;
-        }
-
-        int ans = max(lh, rh) + 1;
-        return ans;
+        if(abs(lh - rh) > 1) isbal = false;
+        return max(lh, rh) + 1;
     }
     bool isBalanced(TreeNode* root) {
        height(root);
