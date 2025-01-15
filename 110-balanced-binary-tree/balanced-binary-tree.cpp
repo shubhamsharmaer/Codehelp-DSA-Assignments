@@ -20,7 +20,7 @@ public:
         int lh = height(root->left);
         int rh = height(root->right);
 
-        if(abs(lh - rh) > 1) isbal = false;
+        if(isbal && abs(lh - rh) > 1) isbal = false;
         return max(lh, rh) + 1;
     }
     bool isBalanced(TreeNode* root) {
