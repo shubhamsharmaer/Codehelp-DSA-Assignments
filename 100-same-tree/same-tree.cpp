@@ -21,7 +21,6 @@ public:
                 && 
                 postT(root1 -> right, root2->right);
         }
-        // if(root1 -> val == root2 -> val) return true;
 
         return false; // this is last case left where any one tree is null
     }
