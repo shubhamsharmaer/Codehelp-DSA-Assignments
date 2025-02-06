@@ -11,38 +11,43 @@
  */
 class Solution {
 public:
-
     vector<vector<int>> verticalTraversal(TreeNode* root) {
-        vector<vector<int>> ans; // define ans str
-        queue<pair<TreeNode*, pair<int,int>>>q; // DS: Node, (row, col)
-        map<int, map<int, multiset<int>>>mp; // DS: col -> <row, [x,y,z,.....]>
+            vector<vector<int>> ans;
+            // store node --> {row, col}
+            queue<pair<TreeNode*, pair<int, int>>> q;
+            // store col --> < row, node val>
+            map<int, map<int, multiset<int>>> mp;
 
-        q.push({root, {0,0}});
-        while(!q.empty()) {
-            auto front = q.front(); q.pop();
-            TreeNode* &node = front.first; // Node
-            auto cordinate = front.second; // cordinate --> (row, col) from above queue
-            int& row = cordinate.first; // row
-            int& col = cordinate.second; // col
-
-            mp[col][row].insert(node->val); // push into map
-            // check if root->left || right
-            if(node->left)
-                q.push({node->left, {row+1, col-1}});
-            if(node->right)
-                q.push({node->right, {row+1, col+1}});
-        }
-
-        // store the ans
-        for(auto it:mp){ // outer map
-            auto& colMap = it.second; // 
-            vector<int> vLine; // to go rowise
-            for(auto &colMapIt:colMap) {
-                auto& mset = colMapIt.second;
-                vLine.insert(vLine.end(), mset.begin(), mset.end());
+            // push into queue
+            q.push({root, {0,0}});
+            // traverse row level
+            while(!q.empty()) {
+                // take values
+                auto front = q.front(); q.pop(); // taking node
+                TreeNode* &node = front.first;
+                auto cordinate = front.second;
+                int &row = cordinate.first;
+                int &col = cordinate.second;
+                
+                mp[col][row].insert(node->val); // push into map node->val 
+                
+                if(node->left)
+                     q.push({node->left, {row+1, col-1}});
+                if(node->right)
+                     q.push({node->right, {row+1, col+1}});
             }
-            ans.push_back(vLine);
-        }
-        return ans;
+
+            // storing into ans
+            for(auto it:mp) {
+                auto &colToRow = it.second; // <row, {x, y}>
+                vector<int> vLine;
+                for(auto rowToPair: colToRow) {
+                    auto &mset = rowToPair.second; // {x,y}
+                    vLine.insert(vLine.end(), mset.begin(), mset.end());
+                }
+                ans.push_back(vLine);
+            }
+            return ans;
+
     }
 };
