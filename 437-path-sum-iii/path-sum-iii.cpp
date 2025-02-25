@@ -12,16 +12,19 @@
 class Solution {
 public:
     int ans = 0;
-    void pathfromRoot(TreeNode* root, long long sum){
+    void pathSumfromRoot(TreeNode* root, long long sum) {
         if(!root) return;
 
-        if(sum == root->val) ans++;
-        pathfromRoot(root->left, sum - root->val);
-        pathfromRoot(root->right, sum - root->val);        
+        if(root->val == sum) {
+            ans++;
+        }
+        pathSumfromRoot(root->left, sum - root->val);
+        pathSumfromRoot(root->right, sum - root->val);
     }
     int pathSum(TreeNode* root, long long targetSum) {
         if(!root) return 0;
-        pathfromRoot(root, targetSum);
+        
+        pathSumfromRoot(root, targetSum);
         pathSum(root->left, targetSum);
         pathSum(root->right, targetSum);
         return ans;
