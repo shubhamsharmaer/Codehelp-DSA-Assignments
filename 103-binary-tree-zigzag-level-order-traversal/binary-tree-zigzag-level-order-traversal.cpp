@@ -15,26 +15,29 @@ public:
         vector<vector<int>> ans;
         // check for null
         if(!root) return ans;
-        queue<TreeNode*> q; // for storing node->val
-
+        // make a queue
+        queue<TreeNode*> q;
+        bool flag = true;
+        // push node in queue
         q.push(root);
-        bool LTR = true; // flag to change order left <-> right
-
+        // traverse queue
         while(!q.empty()) {
-            int len = q.size(); // length for queue
-            vector<int> OneLevel(len); // sub arr for ans[[...], ...] with len
-            for(int i = 0; i < len; i++) {
-               TreeNode* node = q.front(); q.pop();
-               int index = LTR ? i : len - i - 1;
-               OneLevel[index] = node->val;
+            int len = q.size();
+            // take a vec
+            vector<int> OneSubVec(len);
+            // loop on queue
+            for(int i = 0; i < len; i++){
+                TreeNode* node = q.front(); q.pop();
+                int index = flag ? i : len - i - 1;
+                OneSubVec[index] = node->val;
 
                 if(node->left)
                     q.push(node->left);
                 if(node->right)
                     q.push(node->right);
             }
-            LTR = !LTR;
-            ans.push_back(OneLevel);
+            flag = !flag;
+            ans.push_back(OneSubVec);
         }
         return ans;
     }
