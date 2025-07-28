@@ -1,22 +1,23 @@
 class MyQueue {
 public:
-    // Using 2 Stacks -- Only implement pop() and peak() here
-    stack<int> s1,s2;
+    stack<int> s1, s2;
+    
     MyQueue() {
         
     }
     
     void push(int x) {
+        // push in s1
         s1.push(x);
     }
     
     int pop() {
         int pop = -1;
-        if(!s2.empty()){
+        if (!s2.empty()) {
             pop = s2.top();
         }
-        else{
-            while(!s1.empty()){
+        else {
+            while(!s1.empty()) {
                 s2.push(s1.top());
                 s1.pop();
             }
@@ -27,18 +28,17 @@ public:
     }
     
     int peek() {
-        int peak = -1;
-        if(!s2.empty()){
-            peak = s2.top();
-        }
-        else{
-            while(!s1.empty()){
+        int front = -1;
+        if (!s2.empty()) {
+            front = s2.top();
+        } else {
+            while(!s1.empty()) {
                 s2.push(s1.top());
                 s1.pop();
             }
-            peak = s2.top();
+            front = s2.top();
         }
-        return peak;
+        return front;
     }
     
     bool empty() {
